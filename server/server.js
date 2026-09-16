@@ -5,6 +5,9 @@
 import express from "express";
 import  mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
 const app = express();
 const PORT = 7000;
 
@@ -13,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect('mongodb+srv://arjunbharathala06_db_user:Arjun06@cluster0.dgghbky.mongodb.net/', {
+mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
